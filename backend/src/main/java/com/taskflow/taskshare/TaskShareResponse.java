@@ -1,0 +1,1 @@
+package com.taskflow.taskshare; import java.time.Instant; import java.util.UUID; public record TaskShareResponse(UUID id, UUID taskId, String taskTitle, UUID sharedWithUserId, String sharedWithName, String sharedWithEmail, UUID sharedByUserId, String sharedByName, String sharedByEmail, TaskSharePermission permission, Instant createdAt) {}

@@ -1,0 +1,4 @@
+CREATE TABLE task_comments (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), task_id UUID NOT NULL, author_id UUID NOT NULL, parent_id UUID NULL, content TEXT NOT NULL, created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP, CONSTRAINT fk_task_comments_task FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE, CONSTRAINT fk_task_comments_author FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE, CONSTRAINT fk_task_comments_parent FOREIGN KEY (parent_id) REFERENCES task_comments(id) ON DELETE CASCADE);
+CREATE INDEX idx_task_comments_task_id ON task_comments(task_id);
+CREATE INDEX idx_task_comments_author_id ON task_comments(author_id);
+CREATE INDEX idx_task_comments_parent_id ON task_comments(parent_id);

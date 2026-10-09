@@ -1,0 +1,16 @@
+node_modules/
+dist/
+target/
+build/
+out/
+coverage/
+*.log
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+*.iml
+*.class
+*.jar
+*.war
